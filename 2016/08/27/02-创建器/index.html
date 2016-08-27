@@ -3,18 +3,35 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签：: ZMQ | Brady Z</title>
+    <title>02-创建器 | Brady Z</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="naturezhm 张明 zhm zhangming blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Brady Z">
-<meta property="og:url" content="http://naturezhm.github.io/tags/ZMQ/index.html">
+        <meta name="keywords" content="分布式,Spring源码" />
+    
+    <meta name="description" content="1. 构造工厂DefaultListableBeanFactoryXmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：
+
+
+（接口）AliasRegistry：定义对alias的简单增删改等操作；
+（类）SimpleAliasRegistr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02-创建器">
+<meta property="og:url" content="http://naturezhm.github.io/2016/08/27/02-创建器/index.html">
 <meta property="og:site_name" content="Brady Z">
-<meta property="og:description" content="naturezhm 张明 zhm zhangming blog">
+<meta property="og:description" content="1. 构造工厂DefaultListableBeanFactoryXmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：
+
+
+（接口）AliasRegistry：定义对alias的简单增删改等操作；
+（类）SimpleAliasRegistr">
+<meta property="og:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/DefaultListableBeanFactory.png?imageView2/1/w/1080/h/550/interlace/1/q/100">
+<meta property="og:updated_time" content="2016-08-27T10:53:43.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Brady Z">
-<meta name="twitter:description" content="naturezhm 张明 zhm zhangming blog">
+<meta name="twitter:title" content="02-创建器">
+<meta name="twitter:description" content="1. 构造工厂DefaultListableBeanFactoryXmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：
+
+
+（接口）AliasRegistry：定义对alias的简单增删改等操作；
+（类）SimpleAliasRegistr">
+<meta name="twitter:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/DefaultListableBeanFactory.png?imageView2/1/w/1080/h/550/interlace/1/q/100">
     
 
     
@@ -126,74 +143,159 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签：: <em>ZMQ</em>
+    <a class="page-title-link" href="/categories/架构/">架构</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/架构/Spring源码学习/">Spring源码学习</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-02-创建器" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2016" class="archive-year"><i class="icon fa fa-calendar-o"></i>2016</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2016/07/16/ZMQ详细安装文档/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/github/zmq.gif?imageView2/1/w/650/h/370/interlace/1/q/100)" alt="ZMQ详细安装文档" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="ds-thread-count" data-thread-key="2016/07/16/ZMQ详细安装文档/">0</span>
-    
-</span>
-
-    
-</a>
-        
-        <div class="article-meta">
-            <p class="category">
-            <a class="article-category-link" href="/categories/编程/">编程</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/编程/消息队列/">消息队列</a>
-            </p>
-            <p class="date"><time datetime="2016-07-16T08:23:39.000Z" itemprop="datePublished">2016-07-16</time></p>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2016/07/16/ZMQ详细安装文档/">ZMQ详细安装文档</a>
+        02-创建器
         </h1>
     
 
-        <p class="article-excerpt">
+            </header>
+        
+        <div class="article-subtitle">
+            <a href="/2016/08/27/02-创建器/" class="article-date">
+    <time datetime="2016-08-27T09:03:53.000Z" itemprop="datePublished">2016-08-27</time>
+</a>
+            
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring源码/">Spring源码</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式/">分布式</a></li></ul>
+
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="1-构造工厂DefaultListableBeanFactory"><a href="#1-构造工厂DefaultListableBeanFactory" class="headerlink" title="1. 构造工厂DefaultListableBeanFactory"></a>1. 构造工厂DefaultListableBeanFactory</h2><p>XmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：</p>
+<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/DefaultListableBeanFactory.png?imageView2/1/w/1080/h/550/interlace/1/q/100" alt="DefaultListableBeanFactory Class Diagram"></p>
+<ul>
+<li>（接口）AliasRegistry：定义对alias的简单增删改等操作；</li>
+<li>（类）SimpleAliasRegistry：主要使用map作为alias的缓存，并对接口AliasRegistry进行实现；</li>
+<li>（接口）SingletonBeanRegistry：定义对单例的注册及获取；</li>
+<li>（接口）BeanFactory：定义获取bean及bean的各种属性；</li>
+<li>（类）DefaultSingletonBeanRegistry：默认实现；</li>
+<li>（接口）HierarchicalBeanFactory：继承BeanFactory，也就是在BeanFactory定义的功能的基础上增加了对parentFactory的支持；</li>
+<li>（接口）BeanDefinitionRegistry：定义对BeanDefinition的各种增删改操作；</li>
+<li>（抽象类）FactoryBeanRegistrySupport：在DefaultSingletonBeanRegistry的基础上增加了对FactoryBean的特殊处理；</li>
+<li>（接口）ConfigurableBeanFactory：提供配置Factory的各种方法；</li>
+<li>（接口）ListableBeanFactory：根据各种条件获取bean的配置清单；</li>
+<li>（抽象类）AbstractBeanFactory：综合了ConfigurableBeanFactory和FactoryBeanRegistrySupport的功能；</li>
+<li>（接口）AutowireCapableBeanFactory：提供创建bean、自动注入、初始化以及应用bean的后处理器；</li>
+<li>（抽象类）AbstractAutowireCapableBeanFactory：综合了AutowireCapableBeanFactory和AbstractBeanFactory的实现；</li>
+<li>（接口）ConfigurableListableBeanFactory：BeanFactory配置清单，指定忽略类型及接口等；</li>
+<li>（类）DefaultListableBeanFactory：综合上面的类和接口，主要增加了对bean注册后的处理。</li>
+</ul>
+<h2 id="2-配置文件读取和解析XmlBeanDefinitionReader"><a href="#2-配置文件读取和解析XmlBeanDefinitionReader" class="headerlink" title="2. 配置文件读取和解析XmlBeanDefinitionReader"></a>2. 配置文件读取和解析XmlBeanDefinitionReader</h2><p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/XmlBeanDefinitionReader.png" alt="XmlBeanDefinitionReader Class Diagram"><br>在这个XmlBeanDefinitionReader中，包含了以下处理：</p>
+<ol>
+<li>通过继承抽象类AbstractBeanDefinitionReader中的方法，使用ResourcesLoader将资源文件路径转换为对应的Resource文件；</li>
+<li>通过DocumentLoader对Resource文件进行转换，讲Resource文件转换为Document文件；</li>
+<li>通过实现接口BeanDefinitionDocumentReader的DefaultBeanDefinitionDocumentReader类对Document进行解析，并使用BeanDefinitionParserDelegete对Element进行解析。</li>
+</ol>
+<h2 id="3-配置解析构造流程解析"><a href="#3-配置解析构造流程解析" class="headerlink" title="3. 配置解析构造流程解析"></a>3. 配置解析构造流程解析</h2><p>在main方法中写下如下代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BeanFactory bf = <span class="keyword">new</span> XmlBeanFactory(<span class="keyword">new</span> ClassPathResource(<span class="string">"beansTest.xml"</span>));</div></pre></td></tr></table></figure></p>
+<p>其执行逻辑为：</p>
+<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/beanfactory%20seq.svg" alt="beanfactory seq"></p>
+<h2 id="4-Resource封装"><a href="#4-Resource封装" class="headerlink" title="4. Resource封装"></a>4. Resource封装</h2><p>在java中不同资源文件有着URL作为抽象，但是不太实用，URL没有一些基本方法，比如检查是否存在，是否可读写，等，而spring则使用的自己封装的Resource来代表资源，类图如下</p>
+<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/resource%20diagram.png" alt="resource diagram"></p>
+<p><strong>…未完待续</strong></p>
+<hr>
+<p>作者 <a href="https://github.com/naturezhm" target="_blank" rel="external">@Brady</a><br>2016年8月10日</p>
+
+        </div>
+        <footer class="article-footer">
             
 
-1.  JDK安装我安装的是java version “1.8.0_73”注意： 要配置好classpath，检测方法为1234567###如果结果如下，表示配置成功[root@server001 java]# java -versionjava version "1.8.0_73"Java(TM) SE Runtime Environment (build 1.8.0_73-b02)Java
-        </p>
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">
+  </a>
+  <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">
+  </a>
+  <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">
+  </a>
+  <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook">
+  </a>
+  <a href="#" class="bds_more" data-cmd="more">
+  </a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+        </footer>
     </div>
 </article>
+
+    <section id="comments">
     
-        </div>
+        
+    <div class="ds-thread" data-thread-key="2016/08/27/02-创建器/" data-title="02-创建器" data-url="http://naturezhm.github.io/2016/08/27/02-创建器/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
     
-
-
-    </div></section>
-
-
+    </section>
 
                         </div>
                     </section>
@@ -245,6 +347,19 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/08/26/倾城之恋/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">倾城之恋</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://naturezhm.github.io/"/>
-  <updated>2016-08-27T03:47:32.906Z</updated>
+  <updated>2016-08-27T10:53:43.007Z</updated>
   <id>http://naturezhm.github.io/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>02-创建器</title>
+    <link href="http://naturezhm.github.io/2016/08/27/02-%E5%88%9B%E5%BB%BA%E5%99%A8/"/>
+    <id>http://naturezhm.github.io/2016/08/27/02-创建器/</id>
+    <published>2016-08-27T09:03:53.000Z</published>
+    <updated>2016-08-27T10:53:43.007Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-构造工厂DefaultListableBeanFactory"><a href="#1-构造工厂DefaultListableBeanFactory" class="headerlink" title="1. 构造工厂DefaultListableBeanFactory"></a>1. 构造工厂DefaultListableBeanFactory</h2><p>XmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：</p>
+<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/DefaultListableBeanFactory.png?imageView2/1/w/1080/h/550/interlace/1/q/100" alt="DefaultListableBeanFactory Class Diagram"></p>
+<ul>
+<li>（接口）AliasRegistry：定义对alias的简单增删改等操作；</li>
+<li>（类）SimpleAliasRegistry：主要使用map作为alias的缓存，并对接口AliasRegistry进行实现；</li>
+<li>（接口）SingletonBeanRegistry：定义对单例的注册及获取；</li>
+<li>（接口）BeanFactory：定义获取bean及bean的各种属性；</li>
+<li>（类）DefaultSingletonBeanRegistry：默认实现；</li>
+<li>（接口）HierarchicalBeanFactory：继承BeanFactory，也就是在BeanFactory定义的功能的基础上增加了对parentFactory的支持；</li>
+<li>（接口）BeanDefinitionRegistry：定义对BeanDefinition的各种增删改操作；</li>
+<li>（抽象类）FactoryBeanRegistrySupport：在DefaultSingletonBeanRegistry的基础上增加了对FactoryBean的特殊处理；</li>
+<li>（接口）ConfigurableBeanFactory：提供配置Factory的各种方法；</li>
+<li>（接口）ListableBeanFactory：根据各种条件获取bean的配置清单；</li>
+<li>（抽象类）AbstractBeanFactory：综合了ConfigurableBeanFactory和FactoryBeanRegistrySupport的功能；</li>
+<li>（接口）AutowireCapableBeanFactory：提供创建bean、自动注入、初始化以及应用bean的后处理器；</li>
+<li>（抽象类）AbstractAutowireCapableBeanFactory：综合了AutowireCapableBeanFactory和AbstractBeanFactory的实现；</li>
+<li>（接口）ConfigurableListableBeanFactory：BeanFactory配置清单，指定忽略类型及接口等；</li>
+<li>（类）DefaultListableBeanFactory：综合上面的类和接口，主要增加了对bean注册后的处理。</li>
+</ul>
+<h2 id="2-配置文件读取和解析XmlBeanDefinitionReader"><a href="#2-配置文件读取和解析XmlBeanDefinitionReader" class="headerlink" title="2. 配置文件读取和解析XmlBeanDefinitionReader"></a>2. 配置文件读取和解析XmlBeanDefinitionReader</h2><p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/XmlBeanDefinitionReader.png" alt="XmlBeanDefinitionReader Class Diagram"><br>在这个XmlBeanDefinitionReader中，包含了以下处理：</p>
+<ol>
+<li>通过继承抽象类AbstractBeanDefinitionReader中的方法，使用ResourcesLoader将资源文件路径转换为对应的Resource文件；</li>
+<li>通过DocumentLoader对Resource文件进行转换，讲Resource文件转换为Document文件；</li>
+<li>通过实现接口BeanDefinitionDocumentReader的DefaultBeanDefinitionDocumentReader类对Document进行解析，并使用BeanDefinitionParserDelegete对Element进行解析。</li>
+</ol>
+<h2 id="3-配置解析构造流程解析"><a href="#3-配置解析构造流程解析" class="headerlink" title="3. 配置解析构造流程解析"></a>3. 配置解析构造流程解析</h2><p>在main方法中写下如下代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BeanFactory bf = <span class="keyword">new</span> XmlBeanFactory(<span class="keyword">new</span> ClassPathResource(<span class="string">"beansTest.xml"</span>));</div></pre></td></tr></table></figure></p>
+<p>其执行逻辑为：</p>
+<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/beanfactory%20seq.svg" alt="beanfactory seq"></p>
+<h2 id="4-Resource封装"><a href="#4-Resource封装" class="headerlink" title="4. Resource封装"></a>4. Resource封装</h2><p>在java中不同资源文件有着URL作为抽象，但是不太实用，URL没有一些基本方法，比如检查是否存在，是否可读写，等，而spring则使用的自己封装的Resource来代表资源，类图如下</p>
+<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/resource%20diagram.png" alt="resource diagram"></p>
+<p><strong>…未完待续</strong></p>
+<hr>
+<p>作者 <a href="https://github.com/naturezhm" target="_blank" rel="external">@Brady</a><br>2016年8月10日</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-构造工厂DefaultListableBeanFactory&quot;&gt;&lt;a href=&quot;#1-构造工厂DefaultListableBeanFactory&quot; class=&quot;headerlink&quot; title=&quot;1. 构造工厂DefaultListableBeanFa
+    
+    </summary>
+    
+      <category term="架构" scheme="http://naturezhm.github.io/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="Spring源码学习" scheme="http://naturezhm.github.io/categories/%E6%9E%B6%E6%9E%84/Spring%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="分布式" scheme="http://naturezhm.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+      <category term="Spring源码" scheme="http://naturezhm.github.io/tags/Spring%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>倾城之恋</title>
