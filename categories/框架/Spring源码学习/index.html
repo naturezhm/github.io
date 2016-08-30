@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签：: 读书 | Brady Z</title>
+    <title>分类：: Spring源码学习 | Brady Z</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="description" content="naturezhm 张明 zhm zhangming blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Brady Z">
-<meta property="og:url" content="http://naturezhm.github.io/tags/读书/index.html">
+<meta property="og:url" content="http://naturezhm.github.io/categories/框架/Spring源码学习/index.html">
 <meta property="og:site_name" content="Brady Z">
 <meta property="og:description" content="naturezhm 张明 zhm zhangming blog">
 <meta name="twitter:card" content="summary">
@@ -126,7 +126,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签：: <em>读书</em>
+    <i class="icon fa fa-folder-open"></i>分类：: <em class="page-title-link">Spring源码学习</em>
     </h1>
 </div>
                         <div class="main-body-content">
@@ -149,17 +149,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2016/08/26/倾城之恋/" class="thumbnail">
+        <a href="/2016/08/30/03-循环依赖/" class="thumbnail">
     
     
-        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/github/qinchenzhilian.jpg)" alt="倾城之恋" class="thumbnail-image"></span>
+        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/github/Spring%E5%8D%95%E4%BE%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F.png?imageView2/1/w/620/h/710/interlace/1/q/100)" alt="03-循环依赖" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="ds-thread-count" data-thread-key="2016/08/26/倾城之恋/">0</span>
+        <span class="ds-thread-count" data-thread-key="2016/08/30/03-循环依赖/">0</span>
     
 </span>
 
@@ -168,25 +168,121 @@
         
         <div class="article-meta">
             <p class="category">
-            <a class="article-category-link" href="/categories/读书/">读书</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/读书/倾城之恋/">倾城之恋</a>
+            <a class="article-category-link" href="/categories/框架/">框架</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a>
             </p>
-            <p class="date"><time datetime="2016-08-26T04:22:38.000Z" itemprop="datePublished">2016-08-26</time></p>
+            <p class="date"><time datetime="2016-08-30T02:56:39.000Z" itemprop="datePublished">2016-08-30</time></p>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2016/08/26/倾城之恋/">倾城之恋</a>
+        <a href="/2016/08/30/03-循环依赖/">03-循环依赖</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            实例化bean是一个比较复杂的过程，在factory构造对象后，还要进行初始化，这其中就包括了依赖检测和循环依赖的解决。
+1. 什么是循环依赖循环依赖即环状引用，两个或者以上bean相互持有对方的引用，变成一个环状。
+2. Spring是如何解决的
+构造循环依赖这类依赖是无法解决的，只能抛出BeanCurrentlyInCreationException
+setter循环依赖表示通过setter注
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2016/08/27/02-创建器/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/DefaultListableBeanFactory.png?imageView2/1/w/1080/h/550/interlace/1/q/100)" alt="02-创建器" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="ds-thread-count" data-thread-key="2016/08/27/02-创建器/">0</span>
+    
+</span>
+
+    
+</a>
+        
+        <div class="article-meta">
+            <p class="category">
+            <a class="article-category-link" href="/categories/框架/">框架</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a>
+            </p>
+            <p class="date"><time datetime="2016-08-27T09:03:53.000Z" itemprop="datePublished">2016-08-27</time></p>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2016/08/27/02-创建器/">02-创建器</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1. 构造工厂DefaultListableBeanFactoryXmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：
+
+
+（接口）AliasRegistry：定义对alias的简单增删改等操作；
+（类）SimpleAliasRegistr
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2016/08/10/01-Spring整体架构/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/github/spring-logo-min.png)" alt="01.Spring整体架构" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="ds-thread-count" data-thread-key="2016/08/10/01-Spring整体架构/">0</span>
+    
+</span>
+
+    
+</a>
+        
+        <div class="article-meta">
+            <p class="category">
+            <a class="article-category-link" href="/categories/框架/">框架</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a>
+            </p>
+            <p class="date"><time datetime="2016-08-10T08:37:45.000Z" itemprop="datePublished">2016-08-10</time></p>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2016/08/10/01-Spring整体架构/">01.Spring整体架构</a>
         </h1>
     
 
         <p class="article-excerpt">
             
-没错，我不仅看书，还要开始写读后感了
-人终其一生只能活一次，而在书籍，小说，电影，他人的分享中我们获得了重生，每一次阅读新的书籍，看新的小说，电影，电视剧都是自我人生的重新开始。打开书本的那一刻，是漂泊在过去，现在，未来的灵魂。爱恨情仇，生离死别扑面而来，让人措手不及。
 
-本书简介以下摘自豆瓣书评，可以大致了解这本书题材，读者评价等基本信息。
-
-在一位朋友的推荐下，第一次认真拜读张爱玲的著作，《
+开坑前言作为一个开发者，阅读源码是一种非常好的学习方式，在我们日常工作或者学习中，或多或少会接触到一些开源代码，例如Java中的SSH, mybatis等，这些源码的普及和应用程度远远超过我们的想象，很多人也不断的推动和完善这些代码，有着多年积淀，不管我们当前是什么水平，阅读这些源码可以更加熟练使用，让我们程序设计更加完美，让我们思维方式更为开阔，纵观身边的朋友，能够通读源码的人确实不多，究其
         </p>
     </div>
 </article>
@@ -196,6 +292,7 @@
 
 
     </div></section>
+
 
 
 

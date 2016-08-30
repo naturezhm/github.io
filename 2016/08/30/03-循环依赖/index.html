@@ -3,18 +3,35 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类：: Spring源码学习 | Brady Z</title>
+    <title>03-循环依赖 | Brady Z</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="naturezhm 张明 zhm zhangming blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Brady Z">
-<meta property="og:url" content="http://naturezhm.github.io/categories/架构/Spring源码学习/index.html">
+        <meta name="keywords" content="分布式,Spring源码" />
+    
+    <meta name="description" content="实例化bean是一个比较复杂的过程，在factory构造对象后，还要进行初始化，这其中就包括了依赖检测和循环依赖的解决。
+1. 什么是循环依赖循环依赖即环状引用，两个或者以上bean相互持有对方的引用，变成一个环状。
+2. Spring是如何解决的
+构造循环依赖这类依赖是无法解决的，只能抛出BeanCurrentlyInCreationException
+setter循环依赖表示通过setter注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03-循环依赖">
+<meta property="og:url" content="http://naturezhm.github.io/2016/08/30/03-循环依赖/index.html">
 <meta property="og:site_name" content="Brady Z">
-<meta property="og:description" content="naturezhm 张明 zhm zhangming blog">
+<meta property="og:description" content="实例化bean是一个比较复杂的过程，在factory构造对象后，还要进行初始化，这其中就包括了依赖检测和循环依赖的解决。
+1. 什么是循环依赖循环依赖即环状引用，两个或者以上bean相互持有对方的引用，变成一个环状。
+2. Spring是如何解决的
+构造循环依赖这类依赖是无法解决的，只能抛出BeanCurrentlyInCreationException
+setter循环依赖表示通过setter注">
+<meta property="og:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/github/Spring%E5%8D%95%E4%BE%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F.png?imageView2/1/w/620/h/710/interlace/1/q/100">
+<meta property="og:updated_time" content="2016-08-30T09:31:17.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Brady Z">
-<meta name="twitter:description" content="naturezhm 张明 zhm zhangming blog">
+<meta name="twitter:title" content="03-循环依赖">
+<meta name="twitter:description" content="实例化bean是一个比较复杂的过程，在factory构造对象后，还要进行初始化，这其中就包括了依赖检测和循环依赖的解决。
+1. 什么是循环依赖循环依赖即环状引用，两个或者以上bean相互持有对方的引用，变成一个环状。
+2. Spring是如何解决的
+构造循环依赖这类依赖是无法解决的，只能抛出BeanCurrentlyInCreationException
+setter循环依赖表示通过setter注">
+<meta name="twitter:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/github/Spring%E5%8D%95%E4%BE%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F.png?imageView2/1/w/620/h/710/interlace/1/q/100">
     
 
     
@@ -67,7 +84,7 @@
                                     <a class="main-nav-list-link" href="/">主页</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/架构/">架构</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/架构/Spring源码学习/">Spring源码学习</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/编程/">编程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/编程/数据结构/">数据结构</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/编程/消息队列/">消息队列</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/读书/">读书</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/读书/倾城之恋/">倾城之恋</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/框架/">框架</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/编程/">编程</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/编程/数据结构/">数据结构</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/编程/消息队列/">消息队列</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/读书/">读书</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/读书/倾城之恋/">倾城之恋</a></li></ul></li></ul>
                                     
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">关于</a>
@@ -126,123 +143,134 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-folder-open"></i>分类：: <em class="page-title-link">Spring源码学习</em>
+    <a class="page-title-link" href="/categories/框架/">框架</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-03-循环依赖" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2016" class="archive-year"><i class="icon fa fa-calendar-o"></i>2016</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2016/08/27/02-创建器/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/DefaultListableBeanFactory.png?imageView2/1/w/1080/h/550/interlace/1/q/100)" alt="02-创建器" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="ds-thread-count" data-thread-key="2016/08/27/02-创建器/">0</span>
-    
-</span>
-
-    
-</a>
-        
-        <div class="article-meta">
-            <p class="category">
-            <a class="article-category-link" href="/categories/架构/">架构</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/架构/Spring源码学习/">Spring源码学习</a>
-            </p>
-            <p class="date"><time datetime="2016-08-27T09:03:53.000Z" itemprop="datePublished">2016-08-27</time></p>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2016/08/27/02-创建器/">02-创建器</a>
+        03-循环依赖
         </h1>
     
 
-        <p class="article-excerpt">
-            1. 构造工厂DefaultListableBeanFactoryXmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：
-
-
-（接口）AliasRegistry：定义对alias的简单增删改等操作；
-（类）SimpleAliasRegistr
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+            </header>
         
-        <a href="/2016/08/10/01-Spring整体架构/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/github/spring-logo-min.png)" alt="01.Spring整体架构" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="ds-thread-count" data-thread-key="2016/08/10/01-Spring整体架构/">0</span>
-    
-</span>
-
-    
+        <div class="article-subtitle">
+            <a href="/2016/08/30/03-循环依赖/" class="article-date">
+    <time datetime="2016-08-30T02:56:39.000Z" itemprop="datePublished">2016-08-30</time>
 </a>
-        
-        <div class="article-meta">
-            <p class="category">
-            <a class="article-category-link" href="/categories/架构/">架构</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/架构/Spring源码学习/">Spring源码学习</a>
-            </p>
-            <p class="date"><time datetime="2016-08-10T08:37:45.000Z" itemprop="datePublished">2016-08-10</time></p>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2016/08/10/01-Spring整体架构/">01.Spring整体架构</a>
-        </h1>
-    
+            
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring源码/">Spring源码</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式/">分布式</a></li></ul>
 
-        <p class="article-excerpt">
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>实例化bean是一个比较复杂的过程，在factory构造对象后，还要进行初始化，这其中就包括了依赖检测和循环依赖的解决。</p>
+<h2 id="1-什么是循环依赖"><a href="#1-什么是循环依赖" class="headerlink" title="1. 什么是循环依赖"></a>1. 什么是循环依赖</h2><p>循环依赖即环状引用，两个或者以上bean相互持有对方的引用，变成一个环状。</p>
+<h2 id="2-Spring是如何解决的"><a href="#2-Spring是如何解决的" class="headerlink" title="2. Spring是如何解决的"></a>2. Spring是如何解决的</h2><ol>
+<li><strong>构造循环依赖</strong><br>这类依赖是<strong>无法解决</strong>的，只能抛出<em>BeanCurrentlyInCreationException</em></li>
+<li><strong>setter循环依赖</strong><br>表示通过setter注入方式构成的循环依赖，<strong>Spring仅能解决单例的循环依赖</strong>，因为Spring会提前构建和缓存好单例的bean实例，而其他模式不会。具体流程如下图所示：<br><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/Spring%E5%8D%95%E4%BE%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F.png?imageView2/1/w/620/h/710/interlace/1/q/100" alt="Spring循环依赖解决"></li>
+</ol>
+<hr>
+<p>作者 <a href="https://github.com/naturezhm" target="_blank" rel="external">@Brady</a><br>2016年8月10日   </p>
+
+        </div>
+        <footer class="article-footer">
             
 
-开坑前言作为一个开发者，阅读源码是一种非常好的学习方式，在我们日常工作或者学习中，或多或少会接触到一些开源代码，例如Java中的SSH, mybatis等，这些源码的普及和应用程度远远超过我们的想象，很多人也不断的推动和完善这些代码，有着多年积淀，不管我们当前是什么水平，阅读这些源码可以更加熟练使用，让我们程序设计更加完美，让我们思维方式更为开阔，纵观身边的朋友，能够通读源码的人确实不多，究其
-        </p>
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">
+  </a>
+  <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">
+  </a>
+  <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">
+  </a>
+  <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook">
+  </a>
+  <a href="#" class="bds_more" data-cmd="more">
+  </a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+
+        </footer>
     </div>
 </article>
+
+    <section id="comments">
     
-        </div>
+        
+    <div class="ds-thread" data-thread-key="2016/08/30/03-循环依赖/" data-title="03-循环依赖" data-url="http://naturezhm.github.io/2016/08/30/03-循环依赖/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
     
-
-
-    </div></section>
-
-
-
+    </section>
 
                         </div>
                     </section>
@@ -295,6 +323,19 @@
         </ul>
     </div>
     
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/08/27/02-创建器/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">02-创建器</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
     <div class="widgets-container">
         
             
@@ -303,6 +344,25 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/30/03-循环依赖/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/github/Spring%E5%8D%95%E4%BE%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F.png?imageView2/1/w/620/h/710/interlace/1/q/100)" alt="03-循环依赖" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/框架/">框架</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a></p>
+                            <p class="item-title"><a href="/2016/08/30/03-循环依赖/" class="title">03-循环依赖</a></p>
+                            <p class="item-date"><time datetime="2016-08-30T02:56:39.000Z" itemprop="datePublished">2016-08-30</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -317,7 +377,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/架构/">架构</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/架构/Spring源码学习/">Spring源码学习</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/框架/">框架</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a></p>
                             <p class="item-title"><a href="/2016/08/27/02-创建器/" class="title">02-创建器</a></p>
                             <p class="item-date"><time datetime="2016-08-27T09:03:53.000Z" itemprop="datePublished">2016-08-27</time></p>
                         </div>
@@ -355,7 +415,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/架构/">架构</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/架构/Spring源码学习/">Spring源码学习</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/框架/">框架</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a></p>
                             <p class="item-title"><a href="/2016/08/10/01-Spring整体架构/" class="title">01.Spring整体架构</a></p>
                             <p class="item-date"><time datetime="2016-08-10T08:37:45.000Z" itemprop="datePublished">2016-08-10</time></p>
                         </div>
@@ -380,25 +440,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2013/04/17/双端队列-deque/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xjsg3.com1.z0.glb.clouddn.com/github/20160417123735.png?imageView2/1/w/650/h/370/interlace/1/q/100)" alt="双端队列(deque)" class="thumbnail-image"></span>
-    
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/编程/">编程</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/编程/数据结构/">数据结构</a></p>
-                            <p class="item-title"><a href="/2013/04/17/双端队列-deque/" class="title">双端队列(deque)</a></p>
-                            <p class="item-date"><time datetime="2013-04-17T03:49:19.000Z" itemprop="datePublished">2013-04-17</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -408,7 +449,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/架构/">架构</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/架构/Spring源码学习/">Spring源码学习</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/数据结构/">数据结构</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/消息队列/">消息队列</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书/">读书</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/读书/倾城之恋/">倾城之恋</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/框架/">框架</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/框架/Spring源码学习/">Spring源码学习</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/数据结构/">数据结构</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/消息队列/">消息队列</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书/">读书</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/读书/倾城之恋/">倾城之恋</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -418,7 +459,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">四月 2013</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">四月 2013</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 

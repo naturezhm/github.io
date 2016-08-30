@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://naturezhm.github.io/"/>
-  <updated>2016-08-29T10:07:37.443Z</updated>
+  <updated>2016-08-30T09:31:17.119Z</updated>
   <id>http://naturezhm.github.io/</id>
   
   <author>
@@ -16,11 +16,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>03-循环依赖</title>
+    <link href="http://naturezhm.github.io/2016/08/30/03-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/"/>
+    <id>http://naturezhm.github.io/2016/08/30/03-循环依赖/</id>
+    <published>2016-08-30T02:56:39.000Z</published>
+    <updated>2016-08-30T09:31:17.119Z</updated>
+    
+    <content type="html"><![CDATA[<p>实例化bean是一个比较复杂的过程，在factory构造对象后，还要进行初始化，这其中就包括了依赖检测和循环依赖的解决。</p>
+<h2 id="1-什么是循环依赖"><a href="#1-什么是循环依赖" class="headerlink" title="1. 什么是循环依赖"></a>1. 什么是循环依赖</h2><p>循环依赖即环状引用，两个或者以上bean相互持有对方的引用，变成一个环状。</p>
+<h2 id="2-Spring是如何解决的"><a href="#2-Spring是如何解决的" class="headerlink" title="2. Spring是如何解决的"></a>2. Spring是如何解决的</h2><ol>
+<li><strong>构造循环依赖</strong><br>这类依赖是<strong>无法解决</strong>的，只能抛出<em>BeanCurrentlyInCreationException</em></li>
+<li><strong>setter循环依赖</strong><br>表示通过setter注入方式构成的循环依赖，<strong>Spring仅能解决单例的循环依赖</strong>，因为Spring会提前构建和缓存好单例的bean实例，而其他模式不会。具体流程如下图所示：<br><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/Spring%E5%8D%95%E4%BE%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F.png?imageView2/1/w/620/h/710/interlace/1/q/100" alt="Spring循环依赖解决"></li>
+</ol>
+<hr>
+<p>作者 <a href="https://github.com/naturezhm" target="_blank" rel="external">@Brady</a><br>2016年8月10日   </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实例化bean是一个比较复杂的过程，在factory构造对象后，还要进行初始化，这其中就包括了依赖检测和循环依赖的解决。&lt;/p&gt;
+&lt;h2 id=&quot;1-什么是循环依赖&quot;&gt;&lt;a href=&quot;#1-什么是循环依赖&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是
+    
+    </summary>
+    
+      <category term="框架" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Spring源码学习" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/Spring%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="分布式" scheme="http://naturezhm.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+      <category term="Spring源码" scheme="http://naturezhm.github.io/tags/Spring%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
     <title>02-创建器</title>
     <link href="http://naturezhm.github.io/2016/08/27/02-%E5%88%9B%E5%BB%BA%E5%99%A8/"/>
     <id>http://naturezhm.github.io/2016/08/27/02-创建器/</id>
     <published>2016-08-27T09:03:53.000Z</published>
-    <updated>2016-08-29T10:07:37.443Z</updated>
+    <updated>2016-08-30T03:02:02.830Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-构造工厂DefaultListableBeanFactory"><a href="#1-构造工厂DefaultListableBeanFactory" class="headerlink" title="1. 构造工厂DefaultListableBeanFactory"></a>1. 构造工厂DefaultListableBeanFactory</h2><p>XmlBeanFactory继承自DefaultListableBeanFactory，而DefaultListableBeanFactory是整个bean加载的核心部分，是默认实现，介绍下类图中的各个类的作用：</p>
 <p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/DefaultListableBeanFactory.png?imageView2/1/w/1080/h/550/interlace/1/q/100" alt="DefaultListableBeanFactory Class Diagram"></p>
@@ -71,9 +106,9 @@
     
     </summary>
     
-      <category term="架构" scheme="http://naturezhm.github.io/categories/%E6%9E%B6%E6%9E%84/"/>
+      <category term="框架" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
     
-      <category term="Spring源码学习" scheme="http://naturezhm.github.io/categories/%E6%9E%B6%E6%9E%84/Spring%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Spring源码学习" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/Spring%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="分布式" scheme="http://naturezhm.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
@@ -130,7 +165,7 @@
     <link href="http://naturezhm.github.io/2016/08/10/01-Spring%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/"/>
     <id>http://naturezhm.github.io/2016/08/10/01-Spring整体架构/</id>
     <published>2016-08-10T08:37:45.000Z</published>
-    <updated>2016-08-26T10:32:53.605Z</updated>
+    <updated>2016-08-30T03:02:13.213Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/spring-logo-min.png" alt="Spring Framework Logo"></p>
 <hr>
@@ -181,9 +216,9 @@
     
     </summary>
     
-      <category term="架构" scheme="http://naturezhm.github.io/categories/%E6%9E%B6%E6%9E%84/"/>
+      <category term="框架" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
     
-      <category term="Spring源码学习" scheme="http://naturezhm.github.io/categories/%E6%9E%B6%E6%9E%84/Spring%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Spring源码学习" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/Spring%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="分布式" scheme="http://naturezhm.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
