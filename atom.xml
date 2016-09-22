@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://naturezhm.github.io/"/>
-  <updated>2016-09-07T07:30:42.567Z</updated>
+  <updated>2016-09-22T05:38:07.942Z</updated>
   <id>http://naturezhm.github.io/</id>
   
   <author>
@@ -14,6 +14,97 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Webpack笔记及实用性评估</title>
+    <link href="http://naturezhm.github.io/2016/09/22/Webpack%E7%AC%94%E8%AE%B0%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%80%A7%E8%AF%84%E4%BC%B0/"/>
+    <id>http://naturezhm.github.io/2016/09/22/Webpack笔记及实用性评估/</id>
+    <published>2016-09-22T05:29:31.000Z</published>
+    <updated>2016-09-22T05:38:07.942Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/what-is-webpack.png?imageView2/1/w/1170/h/590/interlace/1/q/100" alt="Webpack 架构图"></p>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>Webpack是一个模块合并的工具，认为前端所有资源JS,CSS,图片等都是组件，在构建前端时，可进行选择性加载，一次初始化后，webpack就会帮我们进行自动化的引用和导入。</p>
+<blockquote>
+<p>在越来越多AJAX的使用情况下，局部刷新慢慢取代整页刷新，因此一个页面的代码，除了初始化时状态还包括运行时状态，客户端也要承载越来越多的代码，大量的代码需要很好的组织，而webpack则可以提供一个将不同代码分割成不同模块的方式。</p>
+</blockquote>
+<h2 id="2-常见的JS模块化方式"><a href="#2-常见的JS模块化方式" class="headerlink" title="2. 常见的JS模块化方式"></a>2. 常见的JS模块化方式</h2><ol>
+<li>&lt;script&gt;标签</li>
+<li>CommonJS</li>
+<li>AMD及其衍生</li>
+<li>ES6模块</li>
+</ol>
+<p>其中</p>
+<h3 id="1-lt-script-gt-标签标签"><a href="#1-lt-script-gt-标签标签" class="headerlink" title="1. &lt;script&gt;标签标签"></a>1. &lt;script&gt;标签标签</h3><p>优点：</p>
+<blockquote>
+<p>使用简单，学习成本低，全兼容</p>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<p>全局空间的污染<br>需要合理的加载顺序<br>浏览器多次请求造成额外开销<br>开发者要解决模块/库的依赖<br>大型项目中列表冗长且难以管理</p>
+</blockquote>
+<h3 id="2-CMD加载，如CommonJS-SeaJS"><a href="#2-CMD加载，如CommonJS-SeaJS" class="headerlink" title="2. CMD加载，如CommonJS,SeaJS"></a>2. CMD加载，如CommonJS,SeaJS</h3><p>优点：</p>
+<blockquote>
+<p>使用相较于AMD要更加简单，<br>服务器端模块复用<br>有大量现成模块方便npm安装使用</p>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<p>阻塞式加载不适用于web程序<br>无法异步加载多个模块</p>
+</blockquote>
+<h3 id="3-AMD加载，如RequireJS"><a href="#3-AMD加载，如RequireJS" class="headerlink" title="3. AMD加载，如RequireJS"></a>3. AMD加载，如RequireJS</h3><p>优点：</p>
+<blockquote>
+<p>可以异步加载各个模块</p>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<p>使用起来不太简单，头部声明不利于阅读和编写<br>第三方框架，对AMD支持的不好，要shim来兼容引用哪些不兼容框架</p>
+</blockquote>
+<h3 id="4-ES6模块"><a href="#4-ES6模块" class="headerlink" title="4. ES6模块"></a>4. ES6模块</h3><p>EcmaScript6向JavaScript添加了许多语言结构，因此形成了另一种模块系统。</p>
+<p>优点：</p>
+<blockquote>
+<p>易于解析，将会成为前端通用标准</p>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<p>对前端开发人员的面向对象的模块化编程思想有了更高的要求<br>兼容性不好，仅很高版本浏览器才自持</p>
+</blockquote>
+<h2 id="3-安装使用"><a href="#3-安装使用" class="headerlink" title="3. 安装使用"></a>3. 安装使用</h2><p>不需要我再写了，<a href="http://webpack.github.io/docs/usage.html#create-a-modular-javascript-project" target="_blank" rel="external">webpack官网文档</a></p>
+<p>以下部分摘自<a href="https://segmentfault.com/a/1190000006701122" target="_blank" rel="external">segment default</a></p>
+<h2 id="Webpack的功能特点"><a href="#Webpack的功能特点" class="headerlink" title="Webpack的功能特点"></a>Webpack的功能特点</h2><h3 id="代码拆分"><a href="#代码拆分" class="headerlink" title="代码拆分"></a>代码拆分</h3><p>依赖树有同步和异步两种类型，异步依赖行为将作为拆分点并生成一个新的区块，文件在区块中被分发到每一个区块中去。然后按需加载，而不是将代码拆分为公共代码代码文件。</p>
+<h3 id="Loaders加载器"><a href="#Loaders加载器" class="headerlink" title="Loaders加载器"></a>Loaders加载器</h3><p>webpack只处理JavaScript所以loaders被用来处理将各类资源转换成JavaScript。由此所有的资源都能作为模块。</p>
+<h3 id="智能分析"><a href="#智能分析" class="headerlink" title="智能分析"></a>智能分析</h3><p>web pack 拥有的智能分析系统可以处理几乎所有的第三方库。甚至允许在依赖中使用形如 require(“./templates/“ + name + “.jade”)的写法。智能分析系统可以处理大多数常见的模块格式如： CommonJs 与 AMD。</p>
+<h3 id="插件系统"><a href="#插件系统" class="headerlink" title="插件系统"></a>插件系统</h3><p>webpack 附带一个强大的插件（plugin）系统。绝大多数特性都基于该插件系统。它能让你依据自身需求去定义web pack 还能发布开源插件。</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>webpack的核心思想：</p>
+<ol>
+<li>一切皆模块</li>
+<li>按需加载，官网文档原文为“load on demand” </li>
+</ol>
+<h2 id="5-适用性评估"><a href="#5-适用性评估" class="headerlink" title="5. 适用性评估"></a>5. 适用性评估</h2><ol>
+<li>适用于前后端分离开发</li>
+<li>适用于单个页面的web应用，按需加载各个组件和模块</li>
+<li>适合配合reactjs进行开发</li>
+<li>适合移动端的网页开发，仅加载所需，节省带宽和流量，以及额外请求数</li>
+<li>不适用于页面元素相当复杂的大型电商类网站，因为在复杂页面中，小板块的版本切换，或者灰度发布在webpack中支持不好，webpack则会重新打包所有文件，增量更新的实现较为复杂。</li>
+</ol>
+<hr>
+<p>作者 <a href="https://github.com/naturezhm" target="_blank" rel="external">@Brady</a><br>2016年9月22日</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://7xjsg3.com1.z0.glb.clouddn.com/github/what-is-webpack.png?imageView2/1/w/1170/h/590/interlace/1/q/100&quot; alt=&quot;Webpack 架构图&quot;
+    
+    </summary>
+    
+      <category term="框架" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Webpack" scheme="http://naturezhm.github.io/categories/%E6%A1%86%E6%9E%B6/Webpack/"/>
+    
+    
+      <category term="框架" scheme="http://naturezhm.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Webpack" scheme="http://naturezhm.github.io/tags/Webpack/"/>
+    
+  </entry>
   
   <entry>
     <title>做局高手</title>
