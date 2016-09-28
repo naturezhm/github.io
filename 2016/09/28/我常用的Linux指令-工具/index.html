@@ -3,41 +3,29 @@
 <head>
     <meta charset="utf-8">
     
-    <title>双端队列(deque) | Brady Z</title>
+    <title>我常用的Linux指令/工具 | Brady Z</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="数据结构,测试" />
+        <meta name="keywords" content="工具,linux" />
     
-    <meta name="description" content="这一篇是很久前第一次写的，其实不算原创，抄了其他人的博客，不过都特别说明了
+    <meta name="description" content="出于想做Full Stack，却又不是专业运维，维护服务器频次比较低，平时coding为主，但是服务器还是要了解一下的，所以记录下我常用的指令/工具，太好记的就不写了
 
-暑假，今天看到双端队列(deque)了，书上是这样说的：
-
-除了栈和队列外还有一种限定性数据结构是双端队列；双端队列是限定插入和删除操作在表的两端进行的线性表；尽管双端队列看起来似乎比栈和队列更灵活，但实际上在应用程序中远不及栈和队列有用，故在此不作详细讨论。
-
-于是乎就跳了过去讲链队列和循环队列去了，我想反正是复习">
+1. 目录及文件类12345678910111213141516171819202122232425262728293031323334# 解压tar -xvf file.tar //解压 tar包tar -xzvf file">
 <meta property="og:type" content="article">
-<meta property="og:title" content="双端队列(deque)">
-<meta property="og:url" content="http://naturezhm.github.io/2013/04/17/双端队列-deque/index.html">
+<meta property="og:title" content="我常用的Linux指令/工具">
+<meta property="og:url" content="http://naturezhm.github.io/2016/09/28/我常用的Linux指令-工具/index.html">
 <meta property="og:site_name" content="Brady Z">
-<meta property="og:description" content="这一篇是很久前第一次写的，其实不算原创，抄了其他人的博客，不过都特别说明了
+<meta property="og:description" content="出于想做Full Stack，却又不是专业运维，维护服务器频次比较低，平时coding为主，但是服务器还是要了解一下的，所以记录下我常用的指令/工具，太好记的就不写了
 
-暑假，今天看到双端队列(deque)了，书上是这样说的：
-
-除了栈和队列外还有一种限定性数据结构是双端队列；双端队列是限定插入和删除操作在表的两端进行的线性表；尽管双端队列看起来似乎比栈和队列更灵活，但实际上在应用程序中远不及栈和队列有用，故在此不作详细讨论。
-
-于是乎就跳了过去讲链队列和循环队列去了，我想反正是复习">
-<meta property="og:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/github/20160417123735.png?imageView2/1/w/650/h/370/interlace/1/q/100">
-<meta property="og:updated_time" content="2016-08-26T08:33:45.256Z">
+1. 目录及文件类12345678910111213141516171819202122232425262728293031323334# 解压tar -xvf file.tar //解压 tar包tar -xzvf file">
+<meta property="og:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/github/2013-05-20-linux_logo-on-centos5.png?imageView2/1/w/900/h/520/interlace/1/q/100">
+<meta property="og:updated_time" content="2016-09-28T07:44:02.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="双端队列(deque)">
-<meta name="twitter:description" content="这一篇是很久前第一次写的，其实不算原创，抄了其他人的博客，不过都特别说明了
+<meta name="twitter:title" content="我常用的Linux指令/工具">
+<meta name="twitter:description" content="出于想做Full Stack，却又不是专业运维，维护服务器频次比较低，平时coding为主，但是服务器还是要了解一下的，所以记录下我常用的指令/工具，太好记的就不写了
 
-暑假，今天看到双端队列(deque)了，书上是这样说的：
-
-除了栈和队列外还有一种限定性数据结构是双端队列；双端队列是限定插入和删除操作在表的两端进行的线性表；尽管双端队列看起来似乎比栈和队列更灵活，但实际上在应用程序中远不及栈和队列有用，故在此不作详细讨论。
-
-于是乎就跳了过去讲链队列和循环队列去了，我想反正是复习">
-<meta name="twitter:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/github/20160417123735.png?imageView2/1/w/650/h/370/interlace/1/q/100">
+1. 目录及文件类12345678910111213141516171819202122232425262728293031323334# 解压tar -xvf file.tar //解压 tar包tar -xzvf file">
+<meta name="twitter:image" content="http://7xjsg3.com1.z0.glb.clouddn.com/github/2013-05-20-linux_logo-on-centos5.png?imageView2/1/w/900/h/520/interlace/1/q/100">
     
 
     
@@ -149,228 +137,46 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/编程/">编程</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/编程/数据结构/">数据结构</a>
+    <a class="page-title-link" href="/categories/工具/">工具</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/工具/Linux/">Linux</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-双端队列-deque" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-我常用的Linux指令-工具" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        双端队列(deque)
+        我常用的Linux指令/工具
         </h1>
     
 
             </header>
         
         <div class="article-subtitle">
-            <a href="/2013/04/17/双端队列-deque/" class="article-date">
-    <time datetime="2013-04-17T03:49:19.000Z" itemprop="datePublished">2013-04-17</time>
+            <a href="/2016/09/28/我常用的Linux指令-工具/" class="article-date">
+    <time datetime="2016-09-28T03:45:40.000Z" itemprop="datePublished">2016-09-28</time>
 </a>
             
-    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/20160417123735.png?imageView2/1/w/650/h/370/interlace/1/q/100" alt=""></p>
-<p> <code>这一篇是很久前第一次写的，其实不算原创，抄了其他人的博客，不过都特别说明了</code></p>
-<hr>
-<p>暑假，今天看到双端队列(deque)了，书上是这样说的：</p>
+            <p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/2013-05-20-linux_logo-on-centos5.png?imageView2/1/w/900/h/520/interlace/1/q/100" alt="Linx terminal"></p>
 <blockquote>
-<p>除了栈和队列外还有一种限定性数据结构是双端队列；双端队列是限定插入和删除操作在表的两端进行的线性表；尽管双端队列看起来似乎比栈和队列更灵活，但实际上在应用程序中远不及栈和队列有用，故在此不作详细讨论。</p>
+<p>出于想做Full Stack，却又不是专业运维，维护服务器频次比较低，平时coding为主，但是服务器还是要了解一下的，所以记录下我常用的指令/工具，<code>太好记的就不写了</code></p>
 </blockquote>
-<p>于是乎就跳了过去讲链队列和循环队列去了，我想反正是复习嘛，没有考试的压力，不要放过就是了，再说就算双端队列远不及栈和队列有用，也要知道怎么个没用法。所以就查了下:</p>
-<blockquote>
-<p>Deque成员函数</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述   </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>c.assign(n,elem)</td>
-<td>将n个elem的拷贝赋值给c。    </td>
-</tr>
-<tr>
-<td>c.at(idx)</td>
-<td>传回索引idx所指的数据，如果idx越界，抛出out_of_range。    </td>
-</tr>
-<tr>
-<td>c.back()</td>
-<td>传回最后一个数据，不检查这个数据是否存在。    </td>
-</tr>
-<tr>
-<td>c.begin()</td>
-<td>传回迭代器重的可一个数据。    </td>
-</tr>
-<tr>
-<td>c.clear()</td>
-<td>移除容器中所有数据。    </td>
-</tr>
-<tr>
-<td>deque<elem> c</elem></td>
-<td>创建一个空的deque。    </td>
-</tr>
-<tr>
-<td>deque<elem> c1(c2)</elem></td>
-<td>复制一个deque。    </td>
-</tr>
-<tr>
-<td>Deque<elem> c(n)</elem></td>
-<td>创建一个deque，含有n个数据，数据均已缺省构造产生。    </td>
-</tr>
-<tr>
-<td>Deque<elem> c(n, elem)</elem></td>
-<td>创建一个含有n个elem拷贝的deque。    </td>
-</tr>
-<tr>
-<td>Deque<elem> c(beg,end)</elem></td>
-<td>创建一个以[beg;end)区间的deque。    </td>
-</tr>
-<tr>
-<td>c.~deque<elem>()</elem></td>
-<td>销毁所有数据，释放内存。    </td>
-</tr>
-<tr>
-<td>c.empty()</td>
-<td>判断容器是否为空。    </td>
-</tr>
-<tr>
-<td>c.end()</td>
-<td>指向迭代器中的最后一个数据地址。    </td>
-</tr>
-<tr>
-<td>c.erase(pos)</td>
-<td>删除pos位置的数据，传回下一个数据的位置。    </td>
-</tr>
-<tr>
-<td>c.erase(beg,end)</td>
-<td>删除[beg,end)区间的数据，传回下一个数据的位置。    </td>
-</tr>
-<tr>
-<td>c.front()</td>
-<td>传回地一个数据。    </td>
-</tr>
-<tr>
-<td>get_allocator</td>
-<td>使用构造函数返回一个拷贝。    </td>
-</tr>
-<tr>
-<td>c.insert(pos,elem)</td>
-<td>在pos位置插入一个elem拷贝，传回新数据位置。    </td>
-</tr>
-<tr>
-<td>c.insert(pos,n,elem)</td>
-<td>在pos位置插入&gt;n个elem数据。无返回值。    </td>
-</tr>
-<tr>
-<td>c.insert(pos,beg,end)</td>
-<td>在pos位置插入在[beg,end)区间的数据。无返回值。    </td>
-</tr>
-<tr>
-<td>c.max_size()</td>
-<td>返回容器中最大数据的数量。    </td>
-</tr>
-<tr>
-<td>c.pop_back()</td>
-<td>删除最后一个数据。    </td>
-</tr>
-<tr>
-<td>c.pop_front()</td>
-<td>删除头部数据。    </td>
-</tr>
-<tr>
-<td>c.push_back(elem)</td>
-<td>在尾部加入一个数据。    </td>
-</tr>
-<tr>
-<td>c.push_front(elem)</td>
-<td>在头部插入一个数据。    </td>
-</tr>
-<tr>
-<td>c.rbegin()</td>
-<td>传回一个逆向队列的第一个数据。    </td>
-</tr>
-<tr>
-<td>c.rend()</td>
-<td>传回一个逆向队列的最后一个数据的下一个位置。    </td>
-</tr>
-<tr>
-<td>c.resize(num)</td>
-<td>重新指定队列的长度。    </td>
-</tr>
-<tr>
-<td>c.size()</td>
-<td>返回容器中实际数据的个数。    </td>
-</tr>
-<tr>
-<td>C1.swap(c2)</td>
-<td>将c1和c2元素互换。    </td>
-</tr>
-<tr>
-<td>Swap(c1,c2)</td>
-<td>同上操作。    </td>
-</tr>
-<tr>
-<td>operator[]</td>
-<td>返回容器中指定位置的一个引用。    </td>
-</tr>
-</tbody>
-</table>
-<p>又搜到了一个<a href="http://hi.baidu.com/xuehuo_0411/blog/item/c225942c0a02033a349bf7d1.html" target="_blank" rel="external">使用C++ STL容器基本操作的博客</a> ，后我照着一些简单的程序写了遍，<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">双端队列容器(<span class="built_in">deque</span>)</div><div class="line"><span class="comment">/*</span></div><div class="line">2011.7.24</div><div class="line">使用c++ STL库的双端队列容器(deque)的小程序</div><div class="line">看了博客 http://hi.baidu.com/xuehuo_0411/blog/item/c225942c0a02033a349bf7d1.html 后照着写的</div><div class="line">msdn的文档是 http://msdn.microsoft.com/zh-cn/library/bb398188.aspx</div><div class="line">其中还有些没有写了，其他重要函数</div><div class="line">d1.swap(d2);//d1和d2交换</div><div class="line">zm.max_size();//可支持的最大deque元素个数</div><div class="line">zm.front();//首元素</div><div class="line">zm.back();//末元素</div><div class="line">*/</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">viewByArrey</span><span class="params">(<span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; zm)</span></span>;<span class="comment">//用数组的方式访问deque元素</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">viewByIterator</span><span class="params">(<span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; zm)</span></span>;<span class="comment">//用迭代器的方式來訪問deque元素</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertFrontAndCenter</span><span class="params">(<span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; zm)</span></span>; <span class="comment">//头部和中间位置插入deque元素</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;    </div><div class="line">    <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; zm;</div><div class="line">    <span class="comment">//viewByArrey(zm);</span></div><div class="line">    <span class="comment">//viewByIterator(zm);</span></div><div class="line">    insertFrontAndCenter(zm);<span class="comment">//头部和中间位置插入deque元素</span></div><div class="line">    system(<span class="string">"pause"</span>);</div><div class="line">    &#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">viewByArrey</span><span class="params">(<span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; zm)</span></span>&#123;<span class="comment">//用数组的方式访问deque元素</span></div><div class="line">    zm.push_back(<span class="number">26</span>);</div><div class="line">    zm.push_back(<span class="number">11</span>);</div><div class="line">    zm.push_back(<span class="number">12</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; zm.size();i++)&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;zm[i]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">viewByIterator</span><span class="params">(<span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; zm)</span></span>&#123;</div><div class="line">    zm.push_back(<span class="number">111</span>);</div><div class="line">    zm.push_back(<span class="number">222</span>);</div><div class="line">    zm.push_back(<span class="number">333</span>);</div><div class="line">    <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt;::iterator aa;<span class="comment">//定义了迭代器aa</span></div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(aa = zm.begin(),i = <span class="number">0</span>;aa != zm.end();aa++,i++)&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;aa[<span class="number">0</span>]&lt;&lt;<span class="string">"\t"</span>&lt;&lt;*aa&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="comment">//cout&lt;&lt;*aa&lt;&lt;endl;</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertFrontAndCenter</span><span class="params">(<span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; zm)</span></span>&#123;<span class="comment">//头部和中间位置插入deque元素</span></div><div class="line">    zm.push_back(<span class="number">111</span>);</div><div class="line">    zm.push_back(<span class="number">222</span>);</div><div class="line">    zm.push_front(<span class="number">333</span>);<span class="comment">//放到前面</span></div><div class="line">    zm.insert(zm.begin()+<span class="number">2</span>,<span class="number">444</span>);<span class="comment">//理论上是放到111后面</span></div><div class="line">    <span class="comment">//看是不是这个顺序333,111,444,222</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; zm.size();i++)&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;zm[i]&lt;&lt;<span class="string">","</span>;</div><div class="line">        &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>写完之后，觉得deque还是很好用的啊，就查了下“C++ STL deque的缺点”，<a href="http://blog.csdn.net/ianleelj/article/details/3939354" target="_blank" rel="external">觉得这人讲的不错，还做了对比</a>，内容不多就贴下吧，</p>
-<h3 id="1-vector"><a href="#1-vector" class="headerlink" title="1 vector"></a>1 vector</h3><pre><code>向量 相当于一个数组
-在内存中分配一块连续的内存空间进行存储。支持不指定vector大小的存储。STL内部实现时，首先分配一个非常大的内存空间预备进行存储，即capacituy（）函数返回的大小，当超过此分配的空间时再整体重新放分配一块内存存储，这给人以vector可以不指定vector即一个连续内存的大小的感觉。通常此默认的内存分配能完成大部分情况下的存储。
-</code></pre><p>   <strong>优点</strong>：</p>
-<ol>
-<li>不指定一块内存大小的数组的连续存储，即可以像数组一样操作，但可以对此数组进行动态操作。通常体现在push_back() pop_back()<ol>
-<li>随机访问方便，即支持[ ]操作符和vector.at()</li>
-<li>节省空间。<br><strong>缺点</strong>：</li>
-<li>在内部进行插入删除操作效率低。</li>
-<li>只能在vector的最后进行push和pop，不能在vector的头进行push和pop。</li>
-<li>当动态添加的数据超过vector默认分配的大小时要进行整体的重新分配、拷贝与释放 </li>
-</ol>
-</li>
-</ol>
+<h2 id="1-目录及文件类"><a href="#1-目录及文件类" class="headerlink" title="1. 目录及文件类"></a>1. 目录及文件类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"># 解压</div><div class="line">tar -xvf file.tar //解压 tar包</div><div class="line">tar -xzvf file.tar.gz //解压tar.gz</div><div class="line">tar -xjvf file.tar.bz2   //解压 tar.bz2</div><div class="line">tar -xZvf file.tar.Z   //解压tar.Z</div><div class="line">unrar e file.rar //解压rar</div><div class="line">unzip file.zip //解压zip</div><div class="line"># 压缩 </div><div class="line">tar -cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar</div><div class="line">tar -czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包</div><div class="line"> tar -cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包</div><div class="line">tar -cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包</div><div class="line">rar a jpg.rar *.jpg //rar格式的压缩</div><div class="line">zip jpg.zip *.jpg //zip格式的压缩</div><div class="line"></div><div class="line"># 阅读文件</div><div class="line">cat -n //显示行号</div><div class="line">cat -n ons.log | tail -n +100 | head -n 20 // 从第100行起，显示20行</div><div class="line">more //分页显示文件，只能往后面翻页</div><div class="line">less //分页显示文件，可以前后翻，在翻阅的时候可以输入 /abcd 查找并高亮abcd字符串</div><div class="line">tail -n200 -f //先显示文档尾，最后200行，并持续输出</div><div class="line">head //显示文件头，与tail类似</div><div class="line">wc file.txt // 显示字数行数统计，列出数字分别为“行数 单词数 字节数 文件名”</div><div class="line"> -l 行数统计</div><div class="line"> -v 字节统计</div><div class="line"> -L 最长行的长度</div><div class="line"> -w 统计单词数</div><div class="line"></div><div class="line"># 查找文件内容</div><div class="line">grep //支持正则查找</div><div class="line">cat test.txt | grep hat$ // 查找text.txt文件中，以hat结尾的内容</div><div class="line">grep &apos;[a-z]\&#123;7\&#125;&apos; *.txt //显示当前目录下面以.txt 结尾的文件中的所有包含每个字符串至少有7个连续小写字符的字符串的行</div><div class="line">expr // 表达式求值 ，+-*/运算，以及对字符串的一些操作</div><div class="line">cat test.txt | cut -c 1-100 //显示每行1-100字符的内容，有时候单行log太长，影响查看则，使用则可以很整齐的显示</div></pre></td></tr></table></figure>
+<h2 id="2-服务器日志操作"><a href="#2-服务器日志操作" class="headerlink" title="2. 服务器日志操作"></a>2. 服务器日志操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 查看access.log中访问top10的</div><div class="line">cat access.log | cut -f1 -d &quot; &quot; | sort | uniq -c | sort  -k 1 -n -r | head -10</div><div class="line"># 查看access.log中访问top10的url</div><div class="line">cat access.log | cut -f4 -d &quot; &quot; | sort | uniq -c | sort -k 1 -n -r | head -10</div><div class="line"># 查看最耗时的页面</div><div class="line">cat access.log | sort -k 2 -n -r | head -10</div></pre></td></tr></table></figure>
+<h2 id="3-查看系统新能指令"><a href="#3-查看系统新能指令" class="headerlink" title="3. 查看系统新能指令"></a>3. 查看系统新能指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 查看系统版本</div><div class="line">lsb_release -a</div><div class="line"># 查看负载</div><div class="line">uptime // 最后的load average系统平均负载，统计最近1，5，15分钟的系统平均负载</div><div class="line"># 查看系统状态</div><div class="line">top </div><div class="line">    | grep Cpu // 只查看CPU的</div><div class="line">    -p 123 // 进程只显示 123 pid的</div><div class="line"># 查看磁盘</div><div class="line">df -h </div><div class="line">du  -h /home/haha // 查看 /home/haha目录下，具体文件占用多少磁盘空间</div><div class="line"># 查看网络状况</div><div class="line">sar -n DEV 1 1 </div><div class="line"># 查看系统IO情况</div><div class="line"> iostata -d -k </div><div class="line">#  查看内存使用情况 </div><div class="line">free -m </div><div class="line"># 查看swap IO的情况 </div><div class="line">vmstat </div><div class="line"># 被监听的端口</div><div class="line">netstat -tnlp</div></pre></td></tr></table></figure>
+<h2 id="4-系统网络相关指令"><a href="#4-系统网络相关指令" class="headerlink" title="4. 系统网络相关指令"></a>4. 系统网络相关指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 在防火墙中打开要用到的端口2181，编辑iptables文件</div><div class="line">vim /etc/sysconfig/iptables </div><div class="line">## 2. 末尾增加以下内容</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 2181 -j ACCEPT</div><div class="line">## 3. 重启防火墙</div><div class="line">service iptables restart</div><div class="line">## 4. 查看防火墙状态</div><div class="line">service iptables status</div></pre></td></tr></table></figure>
+<h2 id="5-Java服务器相关"><a href="#5-Java服务器相关" class="headerlink" title="5. Java服务器相关"></a>5. Java服务器相关</h2><p><strong>jps</strong>  主要用来输出JVM中运行的进程状态，类似Unix系统中的ps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jps [options] [hostid]</div><div class="line">   -q 不输出类名、Jar名和传入main方法的参数</div><div class="line">   -m 输出传入main方法的参数</div><div class="line">   -l 输出main类或Jar的全限名</div><div class="line">   -v 输出传入JVM的参数</div></pre></td></tr></table></figure>
+<p><strong>jstack</strong> 查看某个Java进程内的线程堆栈信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">jstack [option] pidjstack [option] executable corejstack [option] [server-id@]remote-hostname-or-ip</div><div class="line">-l long listings，会打印出额外的锁信息，在发生死锁时可以用jstack -l pid来观察锁持有情况</div><div class="line">-m mixed mode，不仅会输出Java堆栈信息，还会输出C/C++堆栈信息（比如Native方法）</div></pre></td></tr></table></figure></p>
+<p><strong>jmap jhat</strong> 用来查看堆内存使用状况，一般结合jhat使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">jmap [option] pidjmap [option] executable corejmap [option]</div><div class="line">jstat [ generalOption | outputOptions vmid [interval[s|ms] [count]] ]</div><div class="line">[server-id@]remote-hostname-or-ip</div><div class="line">jmap -heap pid // 查看进程堆内存使用情况</div><div class="line">jmap -permstat pid // 打印进程的类加载器和类加载器加载的持久代对象信息，输出：类加载器名称、对象是否存活（不可靠）、对象地址、父类加载器、已加载的类大小等信息</div><div class="line">jmap -histo:live pid | more // 查看堆内存中的对象数目、大小统计直方图，如果带上live则只统计活对象</div><div class="line">jmap -dump:format=b,file=dumpFileName pid </div><div class="line">jhat -port 9998 /tmp/dump.dat // 用jmap把进程内存使用情况dump到文件中，再用jhat分析查看</div></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="2-list"><a href="#2-list" class="headerlink" title="2 list"></a>2 list</h3><pre><code>双向链表
-每一个结点都包括一个信息快Info、一个前驱指针Pre、一个后驱指针Post。可以不分配必须的内存大小方便的进行添加和删除操作。使用的是非连续的内存空间进行存储。
-</code></pre><p>   <strong>优点</strong>：</p>
-<ol>
-<li>不使用连续内存完成动态操作。</li>
-<li>在内部方便的进行插入和删除操作</li>
-<li><p>可在两端进行push、pop</p>
-<p><strong>缺点</strong>：</p>
-<ol>
-<li>不能进行内部的随机访问，即不支持[ ]操作符和vector.at()</li>
-<li>相对于verctor占用内存多</li>
-</ol>
-</li>
-</ol>
-<hr>
-<h3 id="3-deque"><a href="#3-deque" class="headerlink" title="3 deque"></a>3 deque</h3><p>   双端队列 double-end queue<br>   deque是在功能上合并了vector和list。<br>   优点：</p>
-<ol>
-<li>随机访问方便，即支持[ ]操作符和vector.at()</li>
-<li>在内部方便的进行插入和删除操作               </li>
-<li><p>可在两端进行push、pop</p>
-<p>缺点：</p>
-</li>
-<li>占用内存多</li>
-</ol>
-<p>使用区别：</p>
-<ol>
-<li>如果你需要高效的随即存取，而不在乎插入和删除的效率，使用vector </li>
-<li>如果你需要大量的插入和删除，而不关心随即存取，则应使用list </li>
-<li>如果你需要随即存取，而且关心两端数据的插入和删除，则应使用deque</li>
-</ol>
-<p>看了后觉得deque还是很好用的嘛，虽然内存占用多些，但是也不至于像书上那样说的一无是处，deque像是集vector和list两者特性的一个容器，牺牲内存换的功能的完善也没什么不可以吧。</p>
+<p>作者 <a href="https://github.com/naturezhm" target="_blank" rel="external">@Brady</a><br>2016年8月10日   </p>
 
         </div>
         <footer class="article-footer">
@@ -424,7 +230,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2013/04/17/双端队列-deque/" data-title="双端队列(deque)" data-url="http://naturezhm.github.io/2013/04/17/双端队列-deque/"></div>
+    <div class="ds-thread" data-thread-key="2016/09/28/我常用的Linux指令-工具/" data-title="我常用的Linux指令/工具" data-url="http://naturezhm.github.io/2016/09/28/我常用的Linux指令-工具/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;
@@ -520,20 +326,10 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2016/07/16/ZMQ详细安装文档/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            ZMQ详细安装文档
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2013/04/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/09/22/Webpack笔记及实用性评估/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Hello World</p>
+        <p class="article-nav-title">Webpack笔记及实用性评估</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     

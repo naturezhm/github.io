@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://naturezhm.github.io/"/>
-  <updated>2016-09-22T05:38:07.942Z</updated>
+  <updated>2016-09-28T07:44:02.375Z</updated>
   <id>http://naturezhm.github.io/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我常用的Linux指令/工具</title>
+    <link href="http://naturezhm.github.io/2016/09/28/%E6%88%91%E5%B8%B8%E7%94%A8%E7%9A%84Linux%E6%8C%87%E4%BB%A4-%E5%B7%A5%E5%85%B7/"/>
+    <id>http://naturezhm.github.io/2016/09/28/我常用的Linux指令-工具/</id>
+    <published>2016-09-28T03:45:40.000Z</published>
+    <updated>2016-09-28T07:44:02.375Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://7xjsg3.com1.z0.glb.clouddn.com/github/2013-05-20-linux_logo-on-centos5.png?imageView2/1/w/900/h/520/interlace/1/q/100" alt="Linx terminal"></p>
+<blockquote>
+<p>出于想做Full Stack，却又不是专业运维，维护服务器频次比较低，平时coding为主，但是服务器还是要了解一下的，所以记录下我常用的指令/工具，<code>太好记的就不写了</code></p>
+</blockquote>
+<h2 id="1-目录及文件类"><a href="#1-目录及文件类" class="headerlink" title="1. 目录及文件类"></a>1. 目录及文件类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"># 解压</div><div class="line">tar -xvf file.tar //解压 tar包</div><div class="line">tar -xzvf file.tar.gz //解压tar.gz</div><div class="line">tar -xjvf file.tar.bz2   //解压 tar.bz2</div><div class="line">tar -xZvf file.tar.Z   //解压tar.Z</div><div class="line">unrar e file.rar //解压rar</div><div class="line">unzip file.zip //解压zip</div><div class="line"># 压缩 </div><div class="line">tar -cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar</div><div class="line">tar -czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包</div><div class="line"> tar -cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包</div><div class="line">tar -cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包</div><div class="line">rar a jpg.rar *.jpg //rar格式的压缩</div><div class="line">zip jpg.zip *.jpg //zip格式的压缩</div><div class="line"></div><div class="line"># 阅读文件</div><div class="line">cat -n //显示行号</div><div class="line">cat -n ons.log | tail -n +100 | head -n 20 // 从第100行起，显示20行</div><div class="line">more //分页显示文件，只能往后面翻页</div><div class="line">less //分页显示文件，可以前后翻，在翻阅的时候可以输入 /abcd 查找并高亮abcd字符串</div><div class="line">tail -n200 -f //先显示文档尾，最后200行，并持续输出</div><div class="line">head //显示文件头，与tail类似</div><div class="line">wc file.txt // 显示字数行数统计，列出数字分别为“行数 单词数 字节数 文件名”</div><div class="line"> -l 行数统计</div><div class="line"> -v 字节统计</div><div class="line"> -L 最长行的长度</div><div class="line"> -w 统计单词数</div><div class="line"></div><div class="line"># 查找文件内容</div><div class="line">grep //支持正则查找</div><div class="line">cat test.txt | grep hat$ // 查找text.txt文件中，以hat结尾的内容</div><div class="line">grep &apos;[a-z]\&#123;7\&#125;&apos; *.txt //显示当前目录下面以.txt 结尾的文件中的所有包含每个字符串至少有7个连续小写字符的字符串的行</div><div class="line">expr // 表达式求值 ，+-*/运算，以及对字符串的一些操作</div><div class="line">cat test.txt | cut -c 1-100 //显示每行1-100字符的内容，有时候单行log太长，影响查看则，使用则可以很整齐的显示</div></pre></td></tr></table></figure>
+<h2 id="2-服务器日志操作"><a href="#2-服务器日志操作" class="headerlink" title="2. 服务器日志操作"></a>2. 服务器日志操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 查看access.log中访问top10的</div><div class="line">cat access.log | cut -f1 -d &quot; &quot; | sort | uniq -c | sort  -k 1 -n -r | head -10</div><div class="line"># 查看access.log中访问top10的url</div><div class="line">cat access.log | cut -f4 -d &quot; &quot; | sort | uniq -c | sort -k 1 -n -r | head -10</div><div class="line"># 查看最耗时的页面</div><div class="line">cat access.log | sort -k 2 -n -r | head -10</div></pre></td></tr></table></figure>
+<h2 id="3-查看系统新能指令"><a href="#3-查看系统新能指令" class="headerlink" title="3. 查看系统新能指令"></a>3. 查看系统新能指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 查看系统版本</div><div class="line">lsb_release -a</div><div class="line"># 查看负载</div><div class="line">uptime // 最后的load average系统平均负载，统计最近1，5，15分钟的系统平均负载</div><div class="line"># 查看系统状态</div><div class="line">top </div><div class="line">    | grep Cpu // 只查看CPU的</div><div class="line">    -p 123 // 进程只显示 123 pid的</div><div class="line"># 查看磁盘</div><div class="line">df -h </div><div class="line">du  -h /home/haha // 查看 /home/haha目录下，具体文件占用多少磁盘空间</div><div class="line"># 查看网络状况</div><div class="line">sar -n DEV 1 1 </div><div class="line"># 查看系统IO情况</div><div class="line"> iostata -d -k </div><div class="line">#  查看内存使用情况 </div><div class="line">free -m </div><div class="line"># 查看swap IO的情况 </div><div class="line">vmstat </div><div class="line"># 被监听的端口</div><div class="line">netstat -tnlp</div></pre></td></tr></table></figure>
+<h2 id="4-系统网络相关指令"><a href="#4-系统网络相关指令" class="headerlink" title="4. 系统网络相关指令"></a>4. 系统网络相关指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 在防火墙中打开要用到的端口2181，编辑iptables文件</div><div class="line">vim /etc/sysconfig/iptables </div><div class="line">## 2. 末尾增加以下内容</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 2181 -j ACCEPT</div><div class="line">## 3. 重启防火墙</div><div class="line">service iptables restart</div><div class="line">## 4. 查看防火墙状态</div><div class="line">service iptables status</div></pre></td></tr></table></figure>
+<h2 id="5-Java服务器相关"><a href="#5-Java服务器相关" class="headerlink" title="5. Java服务器相关"></a>5. Java服务器相关</h2><p><strong>jps</strong>  主要用来输出JVM中运行的进程状态，类似Unix系统中的ps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jps [options] [hostid]</div><div class="line">   -q 不输出类名、Jar名和传入main方法的参数</div><div class="line">   -m 输出传入main方法的参数</div><div class="line">   -l 输出main类或Jar的全限名</div><div class="line">   -v 输出传入JVM的参数</div></pre></td></tr></table></figure>
+<p><strong>jstack</strong> 查看某个Java进程内的线程堆栈信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">jstack [option] pidjstack [option] executable corejstack [option] [server-id@]remote-hostname-or-ip</div><div class="line">-l long listings，会打印出额外的锁信息，在发生死锁时可以用jstack -l pid来观察锁持有情况</div><div class="line">-m mixed mode，不仅会输出Java堆栈信息，还会输出C/C++堆栈信息（比如Native方法）</div></pre></td></tr></table></figure></p>
+<p><strong>jmap jhat</strong> 用来查看堆内存使用状况，一般结合jhat使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">jmap [option] pidjmap [option] executable corejmap [option]</div><div class="line">jstat [ generalOption | outputOptions vmid [interval[s|ms] [count]] ]</div><div class="line">[server-id@]remote-hostname-or-ip</div><div class="line">jmap -heap pid // 查看进程堆内存使用情况</div><div class="line">jmap -permstat pid // 打印进程的类加载器和类加载器加载的持久代对象信息，输出：类加载器名称、对象是否存活（不可靠）、对象地址、父类加载器、已加载的类大小等信息</div><div class="line">jmap -histo:live pid | more // 查看堆内存中的对象数目、大小统计直方图，如果带上live则只统计活对象</div><div class="line">jmap -dump:format=b,file=dumpFileName pid </div><div class="line">jhat -port 9998 /tmp/dump.dat // 用jmap把进程内存使用情况dump到文件中，再用jhat分析查看</div></pre></td></tr></table></figure></p>
+<hr>
+<p>作者 <a href="https://github.com/naturezhm" target="_blank" rel="external">@Brady</a><br>2016年8月10日   </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://7xjsg3.com1.z0.glb.clouddn.com/github/2013-05-20-linux_logo-on-centos5.png?imageView2/1/w/900/h/520/interlace/1/q/100&quot; a
+    
+    </summary>
+    
+      <category term="工具" scheme="http://naturezhm.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Linux" scheme="http://naturezhm.github.io/categories/%E5%B7%A5%E5%85%B7/Linux/"/>
+    
+    
+      <category term="工具" scheme="http://naturezhm.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="linux" scheme="http://naturezhm.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Webpack笔记及实用性评估</title>
